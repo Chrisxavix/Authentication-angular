@@ -1,0 +1,13 @@
+<section>
+    <div *ngIf="error">
+        <p>Ingrese el PIN</p>
+    </div>
+    <input [(ngModel)]="pin" type="text" placeholder="PIN">
+    <div>
+        <button type="button" (click)="ingresar()">Ingresar</button>
+    </div>
+    <br><br><br>
+    <p>
+        <a class="link" href="javascript:void(0)">Crear Cuenta</a>
+    </p>
+</section>
