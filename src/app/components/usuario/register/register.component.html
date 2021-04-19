@@ -1,1 +1,24 @@
-<p>register works!</p>
+<section>
+    <h2>Registrar Usuario</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
+        <div>
+            <input type="text" placeholder="Correo" formControlName="usuario">
+        </div>
+        <br>
+        <div>
+            <input type="password" placeholder="Contraseña" formControlName="password">
+        </div>
+
+        <br>
+        <div>
+            <input type="repeatPassword" placeholder="Repita la contraseña" formControlName="password">
+        </div>
+
+        <br>
+
+        <div>
+            <button type="button" routerLink="/usuario">Volver</button>
+            <button type="submit">Aceptar</button>
+        </div>
+    </form>
+</section>
