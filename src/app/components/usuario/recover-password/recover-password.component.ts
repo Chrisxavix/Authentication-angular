@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-recover-password',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecoverPasswordComponent implements OnInit {
 
-  constructor() { }
+  recuperarForm: FormGroup;
+  constructor(
+    private formBuilder: FormBuilder,
+  ) {
+    this.recuperarForm = this.formBuilder.group({
+      usuario: ['', [Validators.required, Validators.email]],
+    })
+  }
 
   ngOnInit() {
   }
 
+  recuperarClave() {
+    console.log(this.recuperarForm.value, 'recuperar');
+  }
 }
