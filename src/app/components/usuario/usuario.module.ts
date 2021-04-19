@@ -7,7 +7,12 @@ import { RecoverPasswordComponent } from './recover-password/recover-password.co
 import { VerifyMailComponent } from './verify-mail/verify-mail.component';
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent, RecoverPasswordComponent, VerifyMailComponent],
+  declarations: [
+    LoginComponent,
+    RegisterComponent,
+    RecoverPasswordComponent,
+    VerifyMailComponent
+  ],
   imports: [
     CommonModule,
     UsuarioRoutingModule
