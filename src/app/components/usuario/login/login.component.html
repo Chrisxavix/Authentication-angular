@@ -1,1 +1,31 @@
-<p>login works!</p>
+<section>
+    <h2>Login</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <div>
+            <input type="text" placeholder="Correo" formControlName="usuario">
+        </div>
+        <br>
+        <div>
+            <input type="password" placeholder="Contraseña" formControlName="password">
+        </div>
+
+        <br>
+
+        <div>
+            <button type="button" routerLink="/">Volver</button>
+            <button type="submit">Aceptar</button>
+        </div>
+    </form>    
+
+    <br>
+
+    <div>
+        <p>
+            <a class="link" routerLink="/">Registrarse</a>
+        </p>
+
+        <p>
+            <a class="link" routerLink="/">Recuperar clave</a>
+        </p>
+    </div>
+</section>
