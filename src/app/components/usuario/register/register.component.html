@@ -1,6 +1,12 @@
 <section>
     <h2>Registrar Usuario</h2>
-    <form [formGroup]="registerForm" (ngSubmit)="register()">
+    <div>
+        <app-spinner *ngIf="loading"></app-spinner>
+        <!-- https://tobiasahlin.com/spinkit/ -->
+    </div>
+    <br>
+    <!-- Hace que mientras carga el spinner desaparece el formulario -->
+    <form  *ngIf="!loading" [formGroup]="registerForm" (ngSubmit)="register()">
         <div>
             <input type="text" placeholder="Correo" formControlName="usuario">
         </div>
