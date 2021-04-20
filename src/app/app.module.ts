@@ -7,6 +7,7 @@ import { SharedModule } from './components/shared/shared.module';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from 'src/environments/environment';
+import { DashboardModule } from './components/dashboard/dashboard.module';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { environment } from 'src/environments/environment';
     SharedModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
+    DashboardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

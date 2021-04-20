@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ErroresService } from '../../services/errores.service';
+import { User } from '../../interfaces/user';
 
 @Component({
   selector: 'app-login',
@@ -37,8 +38,9 @@ export class LoginComponent implements OnInit {
       if (response.user.emailVerified === false) {
         this.router.navigate(['/usuario/verify']);
       } else {
+        this.setLocalStorage(response.user);
         /* Va al componente ingresado después del login */
-        console.log('Ir componente');
+        this.router.navigate(['/dashboard']);
       }
       this.loading = false;
       this.loginForm.reset();
@@ -47,4 +49,14 @@ export class LoginComponent implements OnInit {
       this.loading = false;
     })
   }
+
+  /* Se crea datos en localStorage, revisar en Aplicattion */
+  setLocalStorage(user: any) {
+    const usuario: User = {
+      uId: user.uid,
+      email: user.email,
+    }
+    localStorage.setItem('user', JSON.stringify(usuario))
+  }
+
 }
