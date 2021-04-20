@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ErroresService } from '../../services/errores.service';
 
 @Component({
@@ -16,6 +17,7 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private angularFireAuth: AngularFireAuth,
     private erroresService: ErroresService,
+    private router: Router,
   ) {
     this.loginForm = this.formBuilder.group({
       usuario: ['', [Validators.required, Validators.email]],
@@ -32,6 +34,12 @@ export class LoginComponent implements OnInit {
     const password = this.loginForm.get('password').value;
     this.angularFireAuth.auth.signInWithEmailAndPassword(usuario, password).then(response => {
       console.log(response, 'Logueado');
+      if (response.user.emailVerified === false) {
+        this.router.navigate(['/usuario/verify']);
+      } else {
+        /* Va al componente ingresado después del login */
+        console.log('Ir componente');
+      }
       this.loading = false;
       this.loginForm.reset();
     }, (error)=> {

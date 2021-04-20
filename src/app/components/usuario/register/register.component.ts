@@ -35,7 +35,9 @@ export class RegisterComponent implements OnInit {
     const usuario = this.registerForm.get('usuario').value;
     const password = this.registerForm.get('password').value;
     this.angularFireAuth.auth.createUserWithEmailAndPassword(usuario, password).then(response => {
-      console.log(response, 'creado');
+      /* Envía un correo de verificación */
+      response.user.sendEmailVerification();      
+      console.log('Usuario creado, se envió un correo');
       this.router.navigate(['/usuario']);
       this.loading = false;
     }, (error)=> {
