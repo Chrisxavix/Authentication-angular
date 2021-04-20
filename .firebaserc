@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "authentication-test-angular": {
+      "hosting": {
+        "Authentication-angular": [
+          "authentication-test-angular"
+        ]
+      }
+    }
+  }
+}

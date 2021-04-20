@@ -122,8 +122,13 @@
               "devServerTarget": "Authentication-angular:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "Authentication-angular"
 }

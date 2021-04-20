@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "Authentication-angular",
+      "public": "dist/Authentication-angular",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}
