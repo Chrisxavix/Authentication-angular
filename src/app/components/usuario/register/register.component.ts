@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { validateEqualPasswords } from 'src/app/util/validateEqualPasswords';
 
 @Component({
   selector: 'app-register',
@@ -16,7 +17,7 @@ export class RegisterComponent implements OnInit {
       usuario: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
       repeatPassword: ['']
-    }, { validator: this.checkPassword })
+    }, { validator: validateEqualPasswords('password', 'repeatPassword') })
   }
 
   ngOnInit() {
@@ -24,12 +25,6 @@ export class RegisterComponent implements OnInit {
 
   register() {
     console.log(this.registerForm.value, 'register');  
-  }
-
-  checkPassword(group: FormGroup): any {
-    const password = group.controls.password.value;
-    const repeatPassword = group.controls.repeatPassword.value;
-    return password === repeatPassword ? null : { notSame: true };
   }
 
 }

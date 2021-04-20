@@ -13,9 +13,8 @@
         <div>
             <input type="password" placeholder="Repita la contraseña" formControlName="repeatPassword">
         </div>
-        <div *ngIf="registerForm.hasError('notSame')">
-            Las contraseñas no coinciden
-        </div>
+
+        <p *ngIf="registerForm.get('repeatPassword')?.errors?.mustMatch && registerForm.get('repeatPassword').touched">Las claves no coinciden</p>
 
         <br>
 
