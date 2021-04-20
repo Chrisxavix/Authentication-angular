@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { validateEqualPasswords } from 'src/app/util/validateEqualPasswords';
+import { ErroresService } from '../../services/errores.service';
 
 @Component({
   selector: 'app-register',
@@ -17,6 +18,7 @@ export class RegisterComponent implements OnInit {
     private formBuilder: FormBuilder,
     private angularFireAuth: AngularFireAuth,
     private router: Router,
+    private erroresService: ErroresService,
   ) {
     this.registerForm = this.formBuilder.group({
       usuario: ['', [Validators.required, Validators.email]],
@@ -37,19 +39,8 @@ export class RegisterComponent implements OnInit {
       this.router.navigate(['/usuario']);
       this.loading = false;
     }, (error)=> {
-      console.log(this.error(error.code), 'Upss.');
+      console.log(this.erroresService.error(error.code), 'Upss.');
       this.loading = false;
     })
-  }
-
-  error(error: string): string {
-    switch(error) {
-      case 'auth/email-already-in-use':
-        return 'El correo ya ha sido utilizado.';
-      case 'auth/weak-password':
-        return 'La clave debe de ser más de 6 caracteres.'
-      default: 
-        return 'Error desconocido.';
-    }
   }
 }

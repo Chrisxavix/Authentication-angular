@@ -1,6 +1,9 @@
 <section>
     <h2>Login</h2>
-    <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <div>
+        <app-spinner *ngIf="loading"></app-spinner>
+    </div>
+    <form *ngIf="!loading" [formGroup]="loginForm" (ngSubmit)="login()">
         <div>
             <input type="text" placeholder="Correo" formControlName="usuario">
         </div>
@@ -19,7 +22,7 @@
 
     <br>
 
-    <div>
+    <div *ngIf="!loading">
         <p>
             <a class="link" routerLink="/usuario/registrar">Registrarse</a>
         </p>
