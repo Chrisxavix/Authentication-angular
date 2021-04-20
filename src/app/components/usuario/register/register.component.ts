@@ -15,15 +15,21 @@ export class RegisterComponent implements OnInit {
     this.registerForm = this.formBuilder.group({
       usuario: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
-      repeatPassword: ['', Validators.required]
-    })
+      repeatPassword: ['']
+    }, { validator: this.checkPassword })
   }
 
   ngOnInit() {
   }
 
   register() {
-    console.log(this.registerForm.value, 'register');
+    console.log(this.registerForm.value, 'register');  
+  }
+
+  checkPassword(group: FormGroup): any {
+    const password = group.controls.password.value;
+    const repeatPassword = group.controls.repeatPassword.value;
+    return password === repeatPassword ? null : { notSame: true };
   }
 
 }
