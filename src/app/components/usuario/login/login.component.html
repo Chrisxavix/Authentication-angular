@@ -1,4 +1,4 @@
-<section>
+<section class="center">
     <h2>Login</h2>
     <div>
         <app-spinner *ngIf="loading"></app-spinner>
@@ -22,17 +22,13 @@
 
     <br>
 
-    <div *ngIf="!loading">
-        <p>
+    <div *ngIf="!loading" class="container-link">
+        <div>
             <a class="link" routerLink="/usuario/registrar">Registrarse</a>
-        </p>
+        </div>
 
-        <p>
+        <div>
             <a class="link" routerLink="/usuario/recuperar-password">Recuperar clave</a>
-        </p>
-
-        <p>
-            Authetication Test
-        </p>
+        </div>
     </div>
 </section>

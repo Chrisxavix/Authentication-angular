@@ -3,8 +3,28 @@ body {
     background-color: rgb(58, 65, 62);
 }
 
+.container-link {
+    text-align: center;
+    margin-top: 100px;
+}
+
 .link {
+    display: inline-block;
     text-decoration: none;
-    color: rgb(193, 196, 53);
+    background-color: rgb(184, 165, 62);
+    border-radius: 10px;
+    color: rgb(7, 7, 7);
     font-weight: bold;
+    width: 170px;
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid black;
+}
+
+.link:hover {
+    background-color: rgb(173, 167, 128);
+}
+
+.center {
+    text-align: center;
 }
