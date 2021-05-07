@@ -3,6 +3,14 @@
     <div>
         <app-spinner *ngIf="loading"></app-spinner>
     </div>
+
+    <figure class="figure-image">
+        <img class="image_init" src="./../../../../assets/login.svg" alt="">
+        <div>
+            <p>Si Ud ya se encuentra registrado, por favor ingrese sus datos.</p>
+        </div>
+    </figure>
+
     <form *ngIf="!loading" [formGroup]="loginForm" (ngSubmit)="login()">
         <div>
             <input type="text" placeholder="Correo" formControlName="usuario">

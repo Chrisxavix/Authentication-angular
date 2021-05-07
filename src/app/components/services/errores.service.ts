@@ -16,7 +16,9 @@ export class ErroresService {
       case 'auth/user-not-found':
         return 'Usuario no encontrado.';
       case 'auth/wrong-password':
-        return 'La clave es inválida.'
+        return 'La clave es inválida.';
+      case 'auth/invalid-email':
+        return 'Ingrese un e-mail válido.';
       default: 
         return 'Error desconocido.';
     }

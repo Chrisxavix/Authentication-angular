@@ -1,11 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
-html, body {
-    height: 100%;
-}
-
 body {
-    margin: 0; 
-    background-color: rgb(58, 65, 62);
+    background-image: radial-gradient(rgb(189, 180, 180), rgb(103, 104, 59));
+    background-repeat: no-repeat;
+    margin: 0;
+    height: 100vh;
 }
 
 .container-link {
@@ -31,5 +29,14 @@ body {
 }
 
 .center {
+    text-align: center;
+}
+
+.image_init {
+    width: 200px;
+    height: auto;
+}
+
+.figure-image {
     text-align: center;
 }
