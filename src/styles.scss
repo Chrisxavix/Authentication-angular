@@ -18,7 +18,7 @@ body {
     border-radius: 10px;
     color: rgb(7, 7, 7);
     font-weight: bold;
-    width: 170px;
+    width: 140px;
     height: 40px;
     line-height: 40px;
     border: 1px solid black;
@@ -72,3 +72,27 @@ body {
     text-align: center;
     justify-content: center;
 }
+
+.container {
+    height: 90vh;
+}
+
+/* *********** FOOTER *********** */
+.footer {
+    height: 10vh;
+    text-align: center;
+    color: #fff;
+    background-color: #14192d;
+    line-height: 10vh;
+}
+
+.footer small {
+    font-size: 13px;
+}
+
+.footer small  a {
+    margin-left: 5px;
+    color: #d90062;
+    font-weight: bold;
+}
+/* *********** FOOTER *********** */
