@@ -19,6 +19,8 @@ export class ErroresService {
         return 'La clave es inválida.';
       case 'auth/invalid-email':
         return 'Ingrese un e-mail válido.';
+      case 'auth/argument-error':
+        return 'Ingrese un e-mail válido.';
       default: 
         return 'Error desconocido.';
     }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { validateEqualPasswords } from 'src/app/util/validateEqualPasswords';
 import { ErroresService } from '../../services/errores.service';
 
@@ -19,6 +20,7 @@ export class RegisterComponent implements OnInit {
     private angularFireAuth: AngularFireAuth,
     private router: Router,
     private erroresService: ErroresService,
+    private toastr: ToastrService,
   ) {
     this.registerForm = this.formBuilder.group({
       usuario: ['', [Validators.required, Validators.email]],
@@ -37,11 +39,17 @@ export class RegisterComponent implements OnInit {
     this.angularFireAuth.auth.createUserWithEmailAndPassword(usuario, password).then(response => {
       /* Envía un correo de verificación */
       response.user.sendEmailVerification();      
-      console.log('Usuario creado, se envió un correo');
+      this.toastr.success('Usuario creado, se envió un correo.', 'Éxito', {
+        progressBar: true,
+        timeOut: 3000
+      });
       this.router.navigate(['/usuario']);
       this.loading = false;
     }, (error)=> {
-      console.log(this.erroresService.error(error.code), 'Upss.');
+      this.toastr.error(this.erroresService.error(error.code), 'Error', {
+        progressBar: true,
+        timeOut: 2800
+      });
       this.loading = false;
     })
   }

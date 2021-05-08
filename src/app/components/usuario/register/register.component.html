@@ -6,27 +6,35 @@
     </div>
     <br>
     <!-- Hace que mientras carga el spinner desaparece el formulario -->
+
+    <figure class="figure-image">
+        <img class="image_init" src="./../../../../assets/sign_in.svg" alt="">
+        <div>
+            <p>Ingrese un correo válido para la validación de la cuenta.</p>
+        </div>
+    </figure>
+
     <form  *ngIf="!loading" [formGroup]="registerForm" (ngSubmit)="register()">
         <div>
-            <input type="text" placeholder="Correo" formControlName="usuario">
+            <input type="text" class="inputDiseno" placeholder="Correo" formControlName="usuario">
         </div>
         <br>
         <div>
-            <input type="password" placeholder="Contraseña" formControlName="password">
+            <input type="password" class="inputDiseno" placeholder="Contraseña" formControlName="password">
         </div>
 
         <br>
         <div>
-            <input type="password" placeholder="Repita la contraseña" formControlName="repeatPassword">
+            <input type="password" class="inputDiseno" placeholder="Repita la contraseña" formControlName="repeatPassword">
         </div>
 
         <p *ngIf="registerForm.get('repeatPassword')?.errors?.mustMatch && registerForm.get('repeatPassword').touched">Las claves no coinciden</p>
 
         <br>
 
-        <div>
-            <button type="button" routerLink="/usuario">Volver</button>
-            <button type="submit">Aceptar</button>
+        <div class="flexOption">
+            <button type="button" class="regresar" routerLink="/">Volver</button>
+            <button type="submit" class="aceptar">Aceptar</button>
         </div>
     </form>
 </section>

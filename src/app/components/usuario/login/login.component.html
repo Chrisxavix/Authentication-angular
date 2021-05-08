@@ -13,28 +13,24 @@
 
     <form *ngIf="!loading" [formGroup]="loginForm" (ngSubmit)="login()">
         <div>
-            <input type="text" placeholder="Correo" formControlName="usuario">
+            <input type="text" class="inputDiseno" placeholder="Correo" formControlName="usuario">
         </div>
         <br>
         <div>
-            <input type="password" placeholder="Contraseña" formControlName="password">
+            <input type="password" class="inputDiseno" placeholder="Contraseña" formControlName="password">
         </div>
 
         <br>
 
-        <div>
-            <button type="button" routerLink="/">Volver</button>
-            <button type="submit">Aceptar</button>
+        <div class="flexOption">
+            <button type="button" class="regresar" routerLink="/">Volver</button>
+            <button type="submit" class="aceptar">Aceptar</button>
         </div>
     </form>    
 
     <br>
 
-    <div *ngIf="!loading" class="container-link">
-        <div>
-            <a class="link" routerLink="/usuario/registrar">Registrarse</a>
-        </div>
-
+    <div *ngIf="!loading">
         <div>
             <a class="link" routerLink="/usuario/recuperar-password">Recuperar clave</a>
         </div>

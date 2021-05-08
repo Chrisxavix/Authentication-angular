@@ -37,14 +37,17 @@ export class LoginComponent implements OnInit {
     const password = this.loginForm.get('password').value;
     this.angularFireAuth.auth.signInWithEmailAndPassword(usuario, password).then(response => {
       if (response.user.emailVerified === false) {
-        this.router.navigate(['/usuario/verify']);
+        this.toastr.info ('Por favor verifique su correo.', 'Info', {
+          progressBar: true,
+          timeOut: 2800
+        });
       } else {
         this.setLocalStorage(response.user);
         /* Va al componente ingresado después del login */
         this.router.navigate(['/dashboard']);
+        this.loginForm.reset();
       }
       this.loading = false;
-      this.loginForm.reset();
     }, (error) => {
       this.toastr.error(this.erroresService.error(error.code), 'Error', {
         progressBar: true,

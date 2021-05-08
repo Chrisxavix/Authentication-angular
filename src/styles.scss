@@ -40,3 +40,35 @@ body {
 .figure-image {
     text-align: center;
 }
+
+.inputDiseno {
+    border-radius: 7px;
+    height: 25px;
+    border: 1px solid white;
+}
+
+.regresar {
+    background-color: rgb(127, 175, 230);
+    border-radius: 20px;
+    border: 1px solid rgb(226, 226, 206);
+    width: 68px;
+    height: 28px;
+    cursor: pointer;
+}
+
+.aceptar {
+    background-color: rgb(116, 187, 82);
+    border-radius: 20px;
+    border: 1px solid rgb(226, 226, 206);
+    width: 68px;
+    height: 28px;
+    cursor: pointer;
+}
+
+.flexOption {
+    margin-top: 5px;
+    display: flex;
+    gap: 0 30px;
+    text-align: center;
+    justify-content: center;
+}
